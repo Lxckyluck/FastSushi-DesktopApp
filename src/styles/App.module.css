@@ -1,11 +1,5 @@
-body {
-  color: #e0e0e0;
+.container {
   height: 100vh;
-  background: linear-gradient(
-    200.96deg,
-    #1e1e2f 51.77%,
-    black 129.35%
-  );
   font-family: sans-serif;
   overflow-y: hidden;
   display: flex;
@@ -24,7 +18,7 @@ body {
   align-items: center;
 }
 
-#LogoSushi {
+.LogoSushi {
   height: 17%;
   margin-top: 1%;
 }
@@ -38,7 +32,11 @@ body {
   width: 100%;
 }
 
-.LoginSection{
+.separator{
+  margin-top: 3rem;
+}
+
+.LoginSection {
   display: flex;
   justify-content: center;
 }
@@ -46,10 +44,11 @@ body {
 .CredentialsText {
   display: flex;
   justify-content: center;
-  margin-top:4%;
+  margin-top: 4%;
 }
 
-.CredentialsField{
+.CredentialsField {
+  margin-top: 2rem;
   border-radius: 2rem;
   height: 1.5rem;
   width: 20rem;
@@ -68,7 +67,7 @@ body {
   opacity: 0.8;
 }
 
-#LoginButton {
+.LoginButton {
   margin-top: 3%;
   border-radius: 2rem;
   height: 2rem;
@@ -82,4 +81,10 @@ body {
   font-size: medium;
   cursor: pointer;
   margin-bottom: 1rem;
+}
+
+.LoginButton:hover {
+  color: white;
+  background-color: #000;
+  border: 0.3rem solid #b7b5b5e9;
 }
