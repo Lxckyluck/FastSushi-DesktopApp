@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/icons/logo_blanc.png';
 import '../styles/App.css';
 
-function Login() {
+export default function SignIn() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/home');
+  };
+
   return (
     <div>
       <div className="WelcomeContent">
@@ -21,7 +28,7 @@ function Login() {
             placeholder="password"
             className="CredentialsField"
           />
-          <button id="LoginButton" type="button">
+          <button id="LoginButton" type="button" onClick={handleLogin}>
             Login
           </button>
         </div>
@@ -29,5 +36,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
