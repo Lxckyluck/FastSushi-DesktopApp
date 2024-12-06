@@ -1,0 +1,18 @@
+.PageContent {
+  border: white 1px solid;
+  width: 85vw;
+  margin-left: 15vw;
+  position: absolute;
+  top: 2.4em;
+  height: 96.05vh;
+  background-color: #1e1e2f;
+}
+
+.title {
+  border: white 1px solid;
+  position: absolute;
+  top: 0;
+  width: 85vw;
+  margin-left: 15vw;
+  text-align: center;
+}

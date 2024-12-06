@@ -1,0 +1,39 @@
+.Navigation {
+  border: white 1px solid;
+  height: 100vh;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #e0e0e00b;
+}
+
+.elements {
+  font-size: larger;
+  padding-top: 2%;
+}
+
+.Logout {
+  width: 6rem;
+  height: 1.2rem;
+  border-radius: 2rem;
+  height: 2rem;
+  border: 0.3rem solid #000000;
+  background-color: #1e1e2f;
+  font-weight: bold;
+  font-style: italic;
+  outline: none;
+  color: #e0e0e0;
+  font-size: medium;
+  cursor: pointer;
+  /* position */
+  margin-top: auto;
+  margin-bottom: 20%;
+  align-self: center;
+}
+
+.Logout:hover {
+  color: white;
+  background-color: #000;
+  border: 0.3rem solid #b7b5b5e9;
+}
+
