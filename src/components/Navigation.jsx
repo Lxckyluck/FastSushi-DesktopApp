@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import styles from '../styles/Navigation.module.css';
 import Logo from '../../assets/icons/logo_blanc.png';
 
@@ -14,6 +15,26 @@ export default function Navigation() {
   const handleNavigateSettings = () => {
     navigate('/settings');
   };
+
+  const logout = () => {
+    localStorage.setItem('authToken', '');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        navigate('/');
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [navigate]);
 
   return (
     <div className={styles.Navigation}>
@@ -43,11 +64,7 @@ export default function Navigation() {
           Settings
         </li>
       </ul>
-      <button
-        onClick={handleNavigateSettings}
-        className={styles.Logout}
-        type="button"
-      >
+      <button onClick={logout} className={styles.Logout} type="button">
         Logout
       </button>
       <img src={Logo} alt="Logo Sushi" className={styles.Logo} />
