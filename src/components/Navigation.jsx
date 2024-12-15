@@ -12,11 +12,18 @@ export default function Navigation() {
   const handleNavigateProducts = () => {
     navigate('/product');
   };
+
+  const handleNavigateConsole = () => {
+    navigate('/console');
+  };
+
   const handleNavigateSettings = () => {
     navigate('/settings');
   };
 
   const logout = () => {
+    localStorage.setItem('authId', '');
+    localStorage.setItem('authName', '');
     localStorage.setItem('authToken', '');
     navigate('/');
   };
@@ -54,6 +61,14 @@ export default function Navigation() {
           className={styles.elements}
         >
           Product
+        </li>
+        {/* eslint-disable-next-line */}
+        <li
+          onClick={handleNavigateConsole}
+          style={{ cursor: 'pointer' }}
+          className={styles.elements}
+        >
+          Console
         </li>
         {/* eslint-disable-next-line */}
         <li
