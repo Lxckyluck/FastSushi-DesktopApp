@@ -7,7 +7,7 @@ export default function Settings() {
       <Navigation />
       <h1 className={styles.title}>Settings Page</h1>
       <div className={styles.PageContent}>
-        <h2>Content of the Page</h2>
+        <h2 className={styles.WelcomeMessage}>Content of the Page</h2>
       </div>
     </div>
   );
