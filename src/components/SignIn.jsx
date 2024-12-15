@@ -35,7 +35,12 @@ export default function SignIn() {
         return response.json();
       })
       .then((data) => {
-        // console.log(data.user.token);
+        if (data.user.name) {
+          localStorage.setItem('authName', data.user.name);
+        }
+        if (data.user.id) {
+          localStorage.setItem('authId', data.user.id);
+        }
         if (data.user.token) {
           localStorage.setItem('authToken', data.user.token);
           return navigate('/home');
@@ -58,10 +63,10 @@ export default function SignIn() {
           <h2 className={`${styles.LoginSection} ${styles.separator}`}>
             Please Login to continue
           </h2>
-          <p className={styles.CredentialsText}>Your username :</p>
+          <p className={styles.CredentialsText}>Your email :</p>
           <input
             type="text"
-            placeholder="name"
+            placeholder="email"
             className={styles.CredentialsField}
             onChange={(e) => setLogEmail(e.target.value)}
             value={LogEmail}
