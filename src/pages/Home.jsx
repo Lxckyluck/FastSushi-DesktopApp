@@ -9,7 +9,7 @@ export default function Home() {
       <Navigation />
       <h1 className={styles.title}>Home Page</h1>
       <div className={styles.PageContent}>
-        <h2 className={styles.WelcomeMessage}>Hello {Name} !</h2>
+        <h2 className={styles.SectionManager}>Hello {Name} !</h2>
       </div>
     </div>
   );

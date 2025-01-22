@@ -7,7 +7,7 @@ export default function Settings() {
       <Navigation />
       <h1 className={styles.title}>Product Page</h1>
       <div className={styles.PageContent}>
-        <h2 className={styles.WelcomeMessage}>Content of the Page</h2>
+        <h2 className={styles.SectionManager}>Content of the Page</h2>
       </div>
     </div>
   );
