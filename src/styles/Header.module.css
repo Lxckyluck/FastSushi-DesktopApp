@@ -4,8 +4,10 @@
   margin-left: 15vw;
   position: absolute;
   top: 2.4em;
-  height: 96.05vh;
+  height: 96.1vh;
   background-color: #1e1e2f;
+  display: flex;
+  justify-content: space-between
 }
 
 .title {
@@ -15,9 +17,4 @@
   width: 85vw;
   margin-left: 15vw;
   text-align: center;
-}
-
-.WelcomeMessage {
-  padding-left: 1rem;
-  padding-top: 1rem;
 }
