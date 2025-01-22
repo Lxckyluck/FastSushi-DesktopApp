@@ -13,8 +13,8 @@ export default function Navigation() {
     navigate('/product');
   };
 
-  const handleNavigateConsole = () => {
-    navigate('/console');
+  const handleNavigateGestion = () => {
+    navigate('/gestion');
   };
 
   const handleNavigateSettings = () => {
@@ -22,6 +22,16 @@ export default function Navigation() {
   };
 
   const logout = () => {
+    const id = localStorage.getItem('authId');
+    const requestOptions = {
+      method: 'PUT',
+      redirect: 'follow',
+    };
+
+    fetch(`http://localhost:3000/users/logout/${id}`, requestOptions)
+      .then((response) => response.text())
+      .catch((error) => console.log('error', error));
+
     localStorage.setItem('authId', '');
     localStorage.setItem('authName', '');
     localStorage.setItem('authToken', '');
@@ -64,11 +74,11 @@ export default function Navigation() {
         </li>
         {/* eslint-disable-next-line */}
         <li
-          onClick={handleNavigateConsole}
+          onClick={handleNavigateGestion}
           style={{ cursor: 'pointer' }}
           className={styles.elements}
         >
-          Console
+          Gestion
         </li>
         {/* eslint-disable-next-line */}
         <li
