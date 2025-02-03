@@ -1,3 +1,23 @@
+.PageContent {
+  border: white 1px solid;
+  width: 85vw;
+  margin-left: 15vw;
+  position: absolute;
+  top: 2.4em;
+  height: 96.1vh;
+  background-color: #1e1e2f;
+  display: flex;
+}
+
+.title {
+  border: white 1px solid;
+  position: absolute;
+  top: 0;
+  width: 85vw;
+  margin-left: 15vw;
+  text-align: center;
+}
+
 .SectionManager {
   width: 33vw;
   padding-left: 1rem;
@@ -17,4 +37,29 @@
   height: 3rem;
   width: 3rem;
   cursor: pointer;
+}
+
+.CreateUser,
+.EditUser,
+.DeleteUser,
+.SeeUser {
+  border: 0.2rem solid #000000;
+  margin: 4rem;
+  margin-top: 25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.CreateUser:hover,
+.EditUser:hover,
+.DeleteUser:hover,
+.SeeUser:hover {
+  color: white;
+  background-color: #000;
+  border: 0.3rem solid #b7b5b5e9;
 }

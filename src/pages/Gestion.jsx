@@ -15,10 +15,15 @@ export default function Gestion() {
   const goUser = () => {
     navigate('/usergestion');
   };
+
+  const goProduct = () => {
+    navigate('/productgestion');
+  };
+
   return (
     <div>
       <Navigation />
-      <h1 className={styles.title}>Gestion Page</h1>
+      <h1 className={styles.title}>Management</h1>
       <div className={styles.PageContent}>
         <h2 className={gestion.SectionManager}>
           User
@@ -33,7 +38,12 @@ export default function Gestion() {
         <h2 className={gestion.SectionManager}>
           Product
           <br />
-          <img src={Product} alt="User_Image" className={gestion.Icon} />
+          <img
+            src={Product}
+            alt="User_Image"
+            className={gestion.Icon}
+            onClick={goProduct}
+          />
         </h2>
         <h2 className={gestion.SectionManager}>
           Order

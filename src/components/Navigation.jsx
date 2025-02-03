@@ -17,6 +17,10 @@ export default function Navigation() {
     navigate('/gestion');
   };
 
+  const handleNavigateAccount = () => {
+    navigate('/account');
+  };
+
   const handleNavigateSettings = () => {
     navigate('/settings');
   };
@@ -78,7 +82,15 @@ export default function Navigation() {
           style={{ cursor: 'pointer' }}
           className={styles.elements}
         >
-          Gestion
+          Management
+        </li>
+        {/* eslint-disable-next-line */}
+        <li
+          onClick={handleNavigateAccount}
+          style={{ cursor: 'pointer' }}
+          className={styles.elements}
+        >
+          Account
         </li>
         {/* eslint-disable-next-line */}
         <li

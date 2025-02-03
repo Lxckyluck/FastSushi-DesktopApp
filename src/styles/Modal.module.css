@@ -1,0 +1,45 @@
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  width: 20%;
+}
+
+.btnClose {
+  color: white;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.credentialsText {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.CredentialsField {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ValidButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ValidButton:hover {
+  background-color: #2f6e32;
+}
