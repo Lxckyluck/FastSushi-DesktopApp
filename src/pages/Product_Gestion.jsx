@@ -27,6 +27,8 @@ export default function ProductGestion() {
     navigate('/gestion');
   };
 
+  const token = localStorage.getItem('authToken');
+
   const displayProductModal = () => {
     setCreateProductModal((prevState) => !prevState);
   };
@@ -34,6 +36,7 @@ export default function ProductGestion() {
   const createProduct = () => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+    myHeaders.append('token', token);
 
     const urlencoded = new URLSearchParams();
     const key = urlencoded;
@@ -53,10 +56,13 @@ export default function ProductGestion() {
     };
 
     fetch('http://localhost:3000/product/createProduct', requestOptions)
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        if (result) {
+        if (result.status === 201) {
+          alert('Your Product has been successfully created');
+        }
+        if (result && result.status !== 500) {
           setCreateProductModal((prevState) => !prevState);
           setName('');
           setDescription('');
@@ -64,6 +70,7 @@ export default function ProductGestion() {
           setType('');
           setStock('');
           setImageUrl('');
+          alert('Your Product has been successfully created');
           return result;
         }
         throw new Error('Failed to create user');

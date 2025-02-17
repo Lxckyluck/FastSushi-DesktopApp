@@ -28,6 +28,8 @@ export default function UserGestion() {
     navigate('/gestion');
   };
 
+  const token = localStorage.getItem('authToken');
+
   const displayCreateUserModal = () => {
     setCreateUserModal((prevState) => !prevState);
   };
@@ -47,6 +49,7 @@ export default function UserGestion() {
   const createUser = () => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+    myHeaders.append('token', token);
 
     const urlencoded = new URLSearchParams();
     urlencoded.append('name', name);
