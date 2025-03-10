@@ -18,6 +18,7 @@ export default function UserGestion() {
   const [EditUserModal, setEditUserModal] = useState(false);
   const [DeleteUserModal, setDeleteUserModal] = useState(false);
 
+  const [users, setUsers] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,6 +37,27 @@ export default function UserGestion() {
 
   const displaySeeUserModal = () => {
     setSeeUserModal((prevState) => !prevState);
+
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+
+    fetch('http://localhost:3000/users/read', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setUsers(data);
+        } else {
+          console.log('La réponse ne contient pas un tableau', data);
+        }
+      })
+      .catch((error) => console.log('error', error));
+  };
+
+  const ResetSeeModal = () => {
+    setSeeUserModal((prevState) => !prevState);
+    setUsers([]);
   };
 
   const displayEditUserModal = () => {
@@ -142,6 +164,23 @@ export default function UserGestion() {
           >
             Create
           </button>
+        </div>
+      )}
+      {SeeUserModal && (
+        <div className={styles.Modal}>
+          <FontAwesomeIcon
+            icon={faXmark}
+            className={styles.btnClose}
+            onClick={ResetSeeModal}
+          />
+          <h1>All Users</h1>
+          <ul>
+            {users.map((user, index) => (
+              <li key={index}>
+                <strong>{user.name}</strong> - {user.email}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
