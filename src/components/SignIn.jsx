@@ -35,14 +35,14 @@ export default function SignIn() {
         return response.json();
       })
       .then((data) => {
-        if (data.user.name) {
-          localStorage.setItem('authName', data.user.name);
+        if (data.name) {
+          localStorage.setItem('authName', data.name);
         }
-        if (data.user.id) {
-          localStorage.setItem('authId', data.user.id);
+        if (data.id) {
+          localStorage.setItem('authId', data.id);
         }
-        if (data.user.token) {
-          localStorage.setItem('authToken', data.user.token);
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
           return navigate('/home');
         }
         throw new Error('Token non trouvé dans la réponse');
