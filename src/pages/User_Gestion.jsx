@@ -23,6 +23,7 @@ export default function UserGestion() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userid, setuserid] = useState(null);
+
   const navigate = useNavigate();
 
   const GoBack = () => {
@@ -43,14 +44,14 @@ export default function UserGestion() {
       redirect: 'follow',
     };
 
-    fetch('http://localhost:3000/users/read', requestOptions)
+    fetch('https://fast-sushi-api.vercel.app/users/read', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
           setUsers(data);
-        } else {
-          console.log('La réponse ne contient pas un tableau', data);
+          return data;
         }
+        throw new Error('Response does not contain an array');
       })
       .catch((error) => console.log('error', error));
   };
@@ -85,7 +86,7 @@ export default function UserGestion() {
       redirect: 'follow',
     };
 
-    fetch('http://localhost:3000/users/signup', requestOptions)
+    fetch('https://fast-sushi-api.vercel.app/users/signup', requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
