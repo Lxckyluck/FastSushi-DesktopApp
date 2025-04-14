@@ -3,10 +3,11 @@
   margin-left: 15vw;
   position: absolute;
   top: 2.4em;
-  height: 95vh;
+  height: 96vh;
   background-color: #1e1e2f;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  border: white 1px solid;
 }
 
 .title {

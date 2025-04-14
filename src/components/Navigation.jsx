@@ -21,10 +21,6 @@ export default function Navigation() {
     navigate('/account');
   };
 
-  const handleNavigateSettings = () => {
-    navigate('/settings');
-  };
-
   const logout = () => {
     const id = localStorage.getItem('authId');
     const requestOptions = {
@@ -32,7 +28,10 @@ export default function Navigation() {
       redirect: 'follow',
     };
 
-    fetch(`http://localhost:3000/users/logout/${id}`, requestOptions)
+    fetch(
+      `https://fast-sushi-api.vercel.app/users/logout/${id}`,
+      requestOptions,
+    )
       .then((response) => response.text())
       .catch((error) => console.log('error', error));
 
@@ -93,13 +92,6 @@ export default function Navigation() {
           Account
         </li>
         {/* eslint-disable-next-line */}
-        <li
-          onClick={handleNavigateSettings}
-          style={{ cursor: 'pointer' }}
-          className={styles.elements}
-        >
-          Settings
-        </li>
       </ul>
       <button onClick={logout} className={styles.Logout} type="button">
         Logout

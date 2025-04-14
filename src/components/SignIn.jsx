@@ -21,7 +21,7 @@ export default function SignIn() {
     formData.append('email', LogEmail);
     formData.append('password', LogPassword);
 
-    fetch('http://localhost:3000/users/signin', {
+    fetch('https://fast-sushi-api.vercel.app/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

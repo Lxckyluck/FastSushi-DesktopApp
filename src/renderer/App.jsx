@@ -5,9 +5,11 @@ import Product from '../pages/Product';
 import Gestion from '../pages/Gestion';
 import UserGestion from '../pages/User_Gestion';
 import ProductGestion from '../pages/Product_Gestion';
+import Appetizer from '../pages/Appetizer';
+import Plate from '../pages/Plate';
+import Dessert from '../pages/Dessert';
 import OrderGestion from '../pages/Order_Gestion';
 import Account from '../pages/Account';
-import Settings from '../pages/Settings';
 
 export default function App() {
   return (
@@ -19,9 +21,11 @@ export default function App() {
         <Route path="/gestion" element={<Gestion />} />
         <Route path="/usergestion" element={<UserGestion />} />
         <Route path="/productgestion" element={<ProductGestion />} />
+        <Route path="/appetizer" element={<Appetizer />} />
+        <Route path="/plate" element={<Plate />} />
+        <Route path="/dessert" element={<Dessert />} />
         <Route path="/ordergestion" element={<OrderGestion />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
   );
