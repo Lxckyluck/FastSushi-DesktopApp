@@ -55,7 +55,10 @@ export default function ProductGestion() {
       redirect: 'follow',
     };
 
-    fetch('http://localhost:3000/product/createProduct', requestOptions)
+    fetch(
+      'https://fast-sushi-api.vercel.app/product/createProduct',
+      requestOptions,
+    )
       .then((response) => response.json())
       .then((result) => {
         console.log(result);

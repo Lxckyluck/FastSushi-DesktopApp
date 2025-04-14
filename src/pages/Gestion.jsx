@@ -7,17 +7,12 @@ import styles from '../styles/Header.module.css';
 import gestion from '../styles/Gestion.module.css';
 
 import User from '../../assets/icons/account_circle.png';
-import Product from '../../assets/icons/shopping_bag.png';
 import Order from '../../assets/icons/sell_24dp.png';
 
 export default function Gestion() {
   const navigate = useNavigate();
   const goUser = () => {
     navigate('/usergestion');
-  };
-
-  const goProduct = () => {
-    navigate('/productgestion');
   };
 
   return (
@@ -33,16 +28,6 @@ export default function Gestion() {
             alt="User_Image"
             className={gestion.Icon}
             onClick={goUser}
-          />
-        </h2>
-        <h2 className={gestion.SectionManager}>
-          Product
-          <br />
-          <img
-            src={Product}
-            alt="User_Image"
-            className={gestion.Icon}
-            onClick={goProduct}
           />
         </h2>
         <h2 className={gestion.SectionManager}>
