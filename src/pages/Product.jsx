@@ -22,7 +22,7 @@ export default function Settings() {
   };
 
   const goDessert = () => {
-    navigate('/plate');
+    navigate('/dessert');
   };
 
   return (
