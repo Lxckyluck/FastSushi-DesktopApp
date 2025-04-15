@@ -19,6 +19,7 @@ export default function Appetizer() {
   const [EditAppetizerModal, setEditAppetizerModal] = useState(false);
   const [DeleteAppetizerModal, setDeleteAppetizerModal] = useState(false);
 
+  const [id, setId] = useState('');
   const [Product, setProduct] = useState([]);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -104,6 +105,34 @@ export default function Appetizer() {
         }
         throw new Error('Failed to create user');
       })
+      .catch((error) => console.log('error', error));
+  };
+
+  const updateAppetizer = () => {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    const urlencoded = new URLSearchParams();
+    urlencoded.append('name', name);
+    urlencoded.append('description', description);
+    urlencoded.append('price', price);
+    urlencoded.append('type', 'Appetizer');
+    urlencoded.append('stock', stock);
+    urlencoded.append('image_url', imageUrl);
+
+    const requestOptions = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: 'follow',
+    };
+
+    fetch(
+      `https://fast-sushi-api.vercel.app/appetizer/update/${id}`,
+      requestOptions,
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
   };
   return (
@@ -204,11 +233,78 @@ export default function Appetizer() {
           <br />
           <ul>
             {Product.map((appetizer, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <li key={index}>
-                <strong>{appetizer.name}</strong> - {appetizer.price} €
+                id {appetizer.id} - <strong>{appetizer.name}</strong> -{' '}
+                {appetizer.price} €
               </li>
             ))}
           </ul>
+        </div>
+      )}
+      {EditAppetizerModal && (
+        <div className={styles.Modal}>
+          <FontAwesomeIcon
+            icon={faXmark}
+            className={styles.btnClose}
+            onClick={displayEditAppetizerModal}
+          />
+          <h1>Edit an Appetizer</h1>
+          <p className={styles.credentialsText}>Id :</p>
+          <input
+            type="number"
+            placeholder="id"
+            className={styles.CredentialsField}
+            onChange={(e) => setId(e.target.value)}
+            value={id}
+          />
+          <p className={styles.credentialsText}>Name :</p>
+          <input
+            type="text"
+            placeholder="name"
+            className={styles.CredentialsField}
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+          <p className={styles.credentialsText}>Description :</p>
+          <input
+            type="text"
+            placeholder="description"
+            className={styles.CredentialsField}
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
+          <p className={styles.credentialsText}>price</p>
+          <input
+            type="number"
+            placeholder="price"
+            className={styles.CredentialsField}
+            onChange={(e) => setPrice(e.target.value)}
+            value={price}
+          />
+          <p className={styles.credentialsText}>stock</p>
+          <input
+            type="number"
+            placeholder="stock"
+            className={styles.CredentialsField}
+            onChange={(e) => setStock(e.target.value)}
+            value={stock}
+          />
+          <p className={styles.credentialsText}>image url</p>
+          <input
+            type="text"
+            placeholder="image url"
+            className={styles.CredentialsField}
+            onChange={(e) => setImageUrl(e.target.value)}
+            value={imageUrl}
+          />
+          <button
+            className={styles.ValidButton}
+            type="button"
+            onClick={updateAppetizer}
+          >
+            Create
+          </button>
         </div>
       )}
     </div>
